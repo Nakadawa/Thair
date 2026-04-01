@@ -1,0 +1,21 @@
+{
+  "countries": [
+    {
+      "id": "brigbanie",
+      "name": "Royaume de Brigbanie",
+      "description": "Terre des humains",
+
+      "cities": [
+        {
+          "id": "pont",
+          "name": "Pont-aux-morts",
+          "description": "Grande ville humaine",
+          "position": {
+            "x": 1030,
+            "y": 213
+          }
+        }
+      ]
+    }
+  ]
+}

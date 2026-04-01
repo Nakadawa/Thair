@@ -3,29 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Carte JDR</title>
-</head>
-<body>
-
-<h1>Carte JDR</h1>
-
-<img id="map" style="width:100%;">
-
-<script>
-fetch("thair.json")
-  .then(res => res.json())
-  .then(data => {
-    const country = data.countries[0];
-    document.getElementById("map").src = country.map;
-  });
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Carte JDR</title>
   <style>
     body {
       margin: 0;
@@ -74,7 +51,7 @@ fetch("thair.json")
 </div>
 
 <script>
-fetch("thair.json") // adapte si ton nom est différent
+fetch("thair.json")
   .then(res => res.json())
   .then(data => {
     const country = data.countries[0];

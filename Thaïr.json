@@ -4,12 +4,13 @@
       "id": "brigbanie",
       "name": "Royaume de Brigbanie",
       "description": "Terre des humains",
-
+      "map": "maps/RUNA.jpg",
       "cities": [
         {
           "id": "pont",
           "name": "Pont-aux-morts",
           "description": "Grande ville humaine",
+          "map": "maps/RUNA.jpg",
           "position": {
             "x": 1030,
             "y": 213

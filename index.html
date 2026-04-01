@@ -21,3 +21,90 @@ fetch("thair.json")
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Carte JDR</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      font-family: Arial;
+    }
+
+    #map-container {
+      position: relative;
+      width: 70%;
+    }
+
+    #map {
+      width: 100%;
+      display: block;
+    }
+
+    .marker {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      background: darkred;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #info {
+      width: 30%;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div id="map-container">
+  <img id="map">
+</div>
+
+<div id="info">
+  <h2>Informations</h2>
+  <p>Clique sur une ville</p>
+</div>
+
+<script>
+fetch("thair.json") // adapte si ton nom est différent
+  .then(res => res.json())
+  .then(data => {
+    const country = data.countries[0];
+    const map = document.getElementById("map");
+    const container = document.getElementById("map-container");
+
+    map.src = country.map;
+
+    map.onload = () => {
+      country.cities.forEach(city => {
+        const marker = document.createElement("div");
+
+        marker.className = "marker";
+        marker.textContent = city.name;
+
+        marker.style.left = city.position.x + "%";
+        marker.style.top = city.position.y + "%";
+
+        marker.onclick = () => {
+          document.getElementById("info").innerHTML = `
+            <h2>${city.name}</h2>
+            <p>${city.description}</p>
+          `;
+        };
+
+        container.appendChild(marker);
+      });
+    };
+  });
+</script>
+
+</body>
+</html>

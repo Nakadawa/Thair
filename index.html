@@ -226,6 +226,26 @@ ${city.nature ? `
     <p>${city.nature}</p>
   </div>
 ` : ""}
+${city.industry ? `
+  <div class="info-section">
+    <strong>Artisanat :</strong>
+    <p>${city.industry}</p>
+  </div>
+` : ""}
+
+${city.security ? `
+  <div class="info-section">
+    <strong>Sécurité :</strong>
+    <p>${city.security}</p>
+  </div>
+` : ""}
+
+${city.energy ? `
+  <div class="info-section">
+    <strong>Énergie :</strong>
+    <p>${city.energy}</p>
+  </div>
+` : ""}
 
             ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
           `;

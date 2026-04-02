@@ -323,6 +323,29 @@
     "x": 50,
     "y": 55
   }
+},
+        {
+  "id": "firmak",
+  "name": "Firmak",
+  "title": "Forteresse du Clan Lokramor",
+  "description": "Firmak est une cité-frontière orc, première ligne de défense contre l’Empire des Éternels.",
+
+  "politics": "La ville est dirigée par le clan Lokramor, une élite guerrière dont l’autorité repose sur la discipline et la force militaire.",
+
+  "military": "Firmak est entièrement dédiée à la guerre. Ses habitants sont formés au combat et ses infrastructures sont pensées pour la défense et le déploiement rapide des troupes.",
+
+  "structure": "La cité est organisée autour d’un axe central permettant de déplacer rapidement les forces. Les murailles épaisses et les tours de guet assurent une surveillance constante.",
+
+  "landmark": "Le bastion du clan Lokramor, situé à l’est de la ville, est le centre stratégique et militaire de Firmak.",
+
+  "society": "La population vit dans une discipline constante, unie par la nécessité de défendre les terres orcs. Les rivalités internes sont mises de côté face aux menaces extérieures.",
+
+  "map": "Maps/Firmak.jpg",
+
+  "position": {
+    "x": 43,
+    "y": 52
+  }
 }
       ]
     }

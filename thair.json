@@ -146,6 +146,29 @@
     "x": 30,
     "y": 42
   }
+},
+        {
+  "id": "fortma",
+  "name": "Fortma",
+  "title": "Capitale du Royaume Nain de Kaz-Gar",
+  "description": "Fortma est une cité colossale creusée sous la montagne, centre névralgique de la puissance du Royaume Nain de Kaz-Gar.",
+
+  "industry": "La ville abrite les meilleurs forgerons et artisans que le monde puisse porter. Les armes, armures et objets façonnés à Fortma sont réputés pour leur qualité inégalée.",
+
+  "security": "Fortma est considérée comme la ville la plus sûre du monde, notamment grâce à la Banque d’Obsidienne, véritable fleuron de la sécurité et gardienne des richesses du royaume.",
+
+  "energy": "La cité est entièrement alimentée par l’énergie du volcan situé en son centre. D’immenses tuyaux parcourent la ville, alimentant les forges et chauffant les habitations.",
+
+  "education": "Fortma possède sa propre université, où sont enseignés les principes de Philtis ainsi que des disciplines pratiques comme la forge-magie, la joaillerie, l’ingénierie minière et l’archéologie.",
+
+  "culture": "La vie à Fortma est rythmée par le travail du métal, le grondement du volcan et la rigueur des traditions naines, où savoir-faire et discipline sont des valeurs fondamentales.",
+
+  "map": "Maps/Fortma.jpg",
+
+  "position": {
+    "x": 45,
+    "y": 70
+  }
 }
       ]
     }

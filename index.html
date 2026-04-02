@@ -264,6 +264,12 @@ ${city.crime ? `
     <p>${city.crime}</p>
   </div>
 ` : ""}
+${city.dark_power ? `
+  <div class="info-section">
+    <strong>Pouvoirs interdits :</strong>
+    <p>${city.dark_power}</p>
+  </div>
+` : ""}
 
             ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
           `;

@@ -268,7 +268,7 @@
   "map": "Maps/Kleexle.jpg",
 
   "position": {
-    "x": 80,
+    "x": 84,
     "y": 5
   }
 },
@@ -295,8 +295,8 @@
   "map": "Maps/Lunerelle.jpg",
 
   "position": {
-    "x": 60,
-    "y": 30
+    "x": 40,
+    "y": 65
   }
 }
       ]

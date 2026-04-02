@@ -246,6 +246,12 @@ ${city.energy ? `
     <p>${city.energy}</p>
   </div>
 ` : ""}
+${city.leadership ? `
+  <div class="info-section">
+    <strong>Dirigeant :</strong>
+    <p>${city.leadership}</p>
+  </div>
+` : ""}
 
             ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
           `;

@@ -91,6 +91,16 @@
       box-shadow: 0 0 12px rgba(0,0,0,0.35);
     }
 
+    .clickable-image {
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .clickable-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 18px rgba(0,0,0,0.45);
+    }
+
     .info-section {
       margin-top: 14px;
       padding-top: 8px;
@@ -103,6 +113,47 @@
       color: #6b4b2a;
       font-family: "Cinzel", serif;
     }
+
+    /* Modal image */
+    #image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.88);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #modal-img {
+      max-width: 92%;
+      max-height: 92%;
+      border: 4px solid #c9a44c;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+      background: #111;
+    }
+
+    #close-modal {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 42px;
+      line-height: 1;
+      color: #f0d68a;
+      cursor: pointer;
+      user-select: none;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    #close-modal:hover {
+      color: #fff2c2;
+    }
   </style>
 </head>
 <body>
@@ -114,6 +165,12 @@
 <div id="info">
   <h2>Informations</h2>
   <p>Clique sur une ville</p>
+</div>
+
+<!-- Modal -->
+<div id="image-modal">
+  <span id="close-modal">&times;</span>
+  <img id="modal-img" alt="Carte agrandie">
 </div>
 
 <script>
@@ -267,7 +324,7 @@ fetch("thair.json")
               </div>
             ` : ""}
 
-            ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
+            ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}" class="clickable-image">` : ""}
           `;
         };
 
@@ -275,6 +332,28 @@ fetch("thair.json")
       });
     };
   });
+
+// Zoom image
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("clickable-image")) {
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+
+    modal.style.display = "flex";
+    modalImg.src = e.target.src;
+    modalImg.alt = e.target.alt || "Carte agrandie";
+  }
+});
+
+document.getElementById("close-modal").onclick = function() {
+  document.getElementById("image-modal").style.display = "none";
+};
+
+document.getElementById("image-modal").onclick = function(e) {
+  if (e.target.id === "image-modal") {
+    this.style.display = "none";
+  }
+};
 </script>
 
 </body>

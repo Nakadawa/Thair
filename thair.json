@@ -271,6 +271,33 @@
     "x": 62,
     "y": 5
   }
+},
+        {
+  "id": "lunerelle",
+  "name": "Lunerelle",
+  "title": "Cité d'Émeraude et Sanctuaire Divin",
+  "description": "Lunerelle est une cité-état sainte dirigée par un conseil d’archiprêtres, centre spirituel majeur du monde.",
+
+  "politics": "La ville est gouvernée par un conseil d’archiprêtres qui dirigent la cité selon les volontés divines et les interprétations des textes sacrés.",
+
+  "economy": "Lunerelle ne possède pas de territoire propre et dépend d’accords avec les royaumes voisins. Des navires viennent chaque semaine ravitailler la cité.",
+
+  "society": "Seules les personnes nécessaires au fonctionnement de la cité y résident en permanence. Les étrangers peuvent y séjourner temporairement sous conditions.",
+
+  "religion": "Le Parc des Révélations permettrait une communion directe avec les dieux du panthéon grâce à ses arbres géants aux propriétés mystiques.",
+
+  "education": "L’académie de recherche de Lunerelle est dédiée à l’étude et à la traduction des anciens textes divins.",
+
+  "mystery": "La Tour de l’Ancien abrite un vénérable aux yeux morts capable de prédire l’avenir et les catastrophes à venir.",
+
+  "entertainment": "L’Arène des Élus est un lieu sacré où les champions des dieux affrontent les prétendants. Aucun n’a encore été vaincu.",
+
+  "map": "Maps/Lunerelle.jpg",
+
+  "position": {
+    "x": 60,
+    "y": 30
+  }
 }
       ]
     }

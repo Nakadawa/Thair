@@ -145,6 +145,41 @@ fetch("thair.json")
               </div>
             ` : ""}
 
+            ${city.reputation ? `
+              <div class="info-section">
+                <strong>Réputation :</strong>
+                <p>${city.reputation}</p>
+              </div>
+            ` : ""}
+
+            ${city.education ? `
+              <div class="info-section">
+                <strong>Université :</strong>
+                <p>${city.education}</p>
+              </div>
+            ` : ""}
+
+            ${city.military ? `
+              <div class="info-section">
+                <strong>Forces armées :</strong>
+                <p>${city.military}</p>
+              </div>
+            ` : ""}
+
+            ${city.mystery ? `
+              <div class="info-section">
+                <strong>Mystère :</strong>
+                <p>${city.mystery}</p>
+              </div>
+            ` : ""}
+
+            ${city.law ? `
+              <div class="info-section">
+                <strong>Interdits :</strong>
+                <p>${city.law}</p>
+              </div>
+            ` : ""}
+
             ${city.politics ? `
               <div class="info-section">
                 <strong>Pouvoir :</strong>

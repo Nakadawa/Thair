@@ -122,6 +122,30 @@
     "x": 40,
     "y": 35
   }
+},
+        {
+  "id": "al-deora",
+  "name": "Al'Deora",
+  "title": "Centre commercial de l'Empire des Éternels",
+  "description": "Al'Deora est une cité prospère au cœur de l'Empire des Éternels, réputée pour son équilibre entre commerce, artisanat et savoir-faire ancestral.",
+
+  "districts": {
+    "north": "Le nord de la ville est réservé aux vignerons et aux brasseurs. D'immenses vignobles y produisent des crus renommés, tandis que les ateliers de brassage participent à la richesse et à la réputation de la cité.",
+    "south": "Le sud est dominé par les herboristes et les alchimistes. De vastes champs de fleurs médicinales entourent ce quartier et alimentent laboratoires, officines et ateliers spécialisés."
+  },
+
+  "economy": "Grâce à sa connexion aux fleuves, Al'Deora est devenue le grand centre commercial de l'Empire. Les échanges y sont constants, et ses productions agricoles, médicinales et artisanales rayonnent bien au-delà de ses murs.",
+
+  "politics": "Au centre de la cité se trouve l'Assemblée des Clans, un lieu neutre où les deux grands clans de métiers se rencontrent afin de discuter et de maintenir une paix durable.",
+
+  "culture": "La ville vit au rythme de ses récoltes, de ses brassins, de ses remèdes et de ses échanges. Chaque quartier cultive une identité forte, mais tous participent à la prospérité commune d'Al'Deora.",
+
+  "map": "Maps/Al-Deora.jpg",
+
+  "position": {
+    "x": 35,
+    "y": 52
+  }
 }
       ]
     }

@@ -192,6 +192,29 @@
     "x": 30,
     "y": 23
   }
+},
+        {
+  "id": "sadia",
+  "name": "Sadia",
+  "title": "Cité des Astres et du Destin",
+  "description": "Sadia est une cité mystique dédiée aux astres et au temps, centre des prophéties de l'Empire des Éternels.",
+
+  "leadership": "La cité est dirigée par un ancien aux yeux bandés, ayant renoncé à la vision du monde physique pour percevoir les fils du destin et guider la ville selon ses visions.",
+
+  "religion": "Sadia est le cœur du culte de Khronos. Les disciples y étudient les cycles du temps et interprètent les signes célestes.",
+
+  "landmark": "Au sommet de la ville se dresse le Grand Temple des Astres, abritant le plus grand Orrery de Thair, une structure colossale représentant les mouvements du monde et des étoiles.",
+
+  "mystery": "Les prophéties de Sadia sont réputées pour leur exactitude… mais aussi pour leur ambiguïté. Nombreux sont ceux qui regrettent d’avoir cherché à connaître leur destin.",
+
+  "culture": "La cité attire érudits, nobles et voyageurs venus consulter les oracles. La vie y est rythmée par les cycles célestes et les annonces prophétiques.",
+
+  "map": "Maps/Sadia.jpg",
+
+  "position": {
+    "x": 25,
+    "y": 33
+  }
 }
       ]
     }

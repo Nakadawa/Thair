@@ -18,11 +18,24 @@
       width: 70%;
       overflow: auto;
       background: #111;
+      cursor: grab;
+    }
+
+    #map-container.dragging {
+      cursor: grabbing;
+    }
+
+    /* Nouveau conteneur zoomable */
+    #map-stage {
+      position: relative;
+      transform-origin: top left;
+      width: fit-content;
     }
 
     #map {
-      width: 100%;
       display: block;
+      max-width: none;
+      width: 100%;
     }
 
     .marker {
@@ -38,11 +51,40 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.6);
       transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
       white-space: nowrap;
+      z-index: 10;
     }
 
     .marker:hover {
       transform: translate(-50%, -50%) scale(1.1);
       box-shadow: 0 0 15px rgba(255, 215, 100, 0.8);
+      background: #5a2d14;
+    }
+
+    #zoom-controls {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 50;
+      display: flex;
+      gap: 8px;
+      background: rgba(20, 12, 8, 0.85);
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #8c6a34;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .zoom-btn {
+      background: #3b1e0f;
+      color: #f0d68a;
+      border: 1px solid #c9a44c;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .zoom-btn:hover {
       background: #5a2d14;
     }
 
@@ -114,7 +156,6 @@
       font-family: "Cinzel", serif;
     }
 
-    /* Modal image */
     #image-modal {
       display: none;
       position: fixed;
@@ -159,7 +200,15 @@
 <body>
 
 <div id="map-container">
-  <img id="map">
+  <div id="zoom-controls">
+    <button class="zoom-btn" id="zoom-in">+</button>
+    <button class="zoom-btn" id="zoom-out">−</button>
+    <button class="zoom-btn" id="zoom-reset">Reset</button>
+  </div>
+
+  <div id="map-stage">
+    <img id="map">
+  </div>
 </div>
 
 <div id="info">
@@ -167,7 +216,6 @@
   <p>Clique sur une ville</p>
 </div>
 
-<!-- Modal -->
 <div id="image-modal">
   <span id="close-modal">&times;</span>
   <img id="modal-img" alt="Carte agrandie">
@@ -179,7 +227,7 @@ fetch("thair.json")
   .then(data => {
     const country = data.countries[0];
     const map = document.getElementById("map");
-    const container = document.getElementById("map-container");
+    const mapStage = document.getElementById("map-stage");
 
     map.src = country.map;
 
@@ -328,17 +376,18 @@ fetch("thair.json")
           `;
         };
 
-        container.appendChild(marker);
+        mapStage.appendChild(marker);
       });
+
+      initMapZoom();
     };
   });
 
-// Zoom image
+/* Zoom image description */
 document.addEventListener("click", function(e) {
   if (e.target.classList.contains("clickable-image")) {
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
-
     modal.style.display = "flex";
     modalImg.src = e.target.src;
     modalImg.alt = e.target.alt || "Carte agrandie";
@@ -354,6 +403,95 @@ document.getElementById("image-modal").onclick = function(e) {
     this.style.display = "none";
   }
 };
+
+/* Zoom + déplacement carte principale */
+function initMapZoom() {
+  const container = document.getElementById("map-container");
+  const stage = document.getElementById("map-stage");
+  const zoomInBtn = document.getElementById("zoom-in");
+  const zoomOutBtn = document.getElementById("zoom-out");
+  const zoomResetBtn = document.getElementById("zoom-reset");
+
+  let scale = 1;
+  const minScale = 0.6;
+  const maxScale = 2.5;
+  const step = 0.1;
+
+  function applyZoom() {
+    stage.style.transform = `scale(${scale})`;
+  }
+
+  zoomInBtn.addEventListener("click", () => {
+    scale = Math.min(maxScale, scale + step);
+    applyZoom();
+  });
+
+  zoomOutBtn.addEventListener("click", () => {
+    scale = Math.max(minScale, scale - step);
+    applyZoom();
+  });
+
+  zoomResetBtn.addEventListener("click", () => {
+    scale = 1;
+    applyZoom();
+    container.scrollLeft = 0;
+    container.scrollTop = 0;
+  });
+
+  container.addEventListener("wheel", (e) => {
+    e.preventDefault();
+
+    const oldScale = scale;
+    if (e.deltaY < 0) {
+      scale = Math.min(maxScale, scale + step);
+    } else {
+      scale = Math.max(minScale, scale - step);
+    }
+
+    if (oldScale !== scale) {
+      const rect = container.getBoundingClientRect();
+      const offsetX = e.clientX - rect.left + container.scrollLeft;
+      const offsetY = e.clientY - rect.top + container.scrollTop;
+
+      const ratio = scale / oldScale;
+
+      applyZoom();
+
+      container.scrollLeft = (offsetX * ratio) - (e.clientX - rect.left);
+      container.scrollTop = (offsetY * ratio) - (e.clientY - rect.top);
+    }
+  }, { passive: false });
+
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let scrollLeft = 0;
+  let scrollTop = 0;
+
+  container.addEventListener("mousedown", (e) => {
+    if (e.target.classList.contains("marker")) return;
+    isDragging = true;
+    container.classList.add("dragging");
+    startX = e.pageX;
+    startY = e.pageY;
+    scrollLeft = container.scrollLeft;
+    scrollTop = container.scrollTop;
+  });
+
+  window.addEventListener("mouseup", () => {
+    isDragging = false;
+    container.classList.remove("dragging");
+  });
+
+  container.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const dx = e.pageX - startX;
+    const dy = e.pageY - startY;
+    container.scrollLeft = scrollLeft - dx;
+    container.scrollTop = scrollTop - dy;
+  });
+}
 </script>
 
 </body>

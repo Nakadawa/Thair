@@ -270,6 +270,12 @@ ${city.dark_power ? `
     <p>${city.dark_power}</p>
   </div>
 ` : ""}
+${city.trade ? `
+  <div class="info-section">
+    <strong>Commerce :</strong>
+    <p>${city.trade}</p>
+  </div>
+` : ""}
 
             ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
           `;

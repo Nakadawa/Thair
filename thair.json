@@ -346,6 +346,31 @@
     "x": 40,
     "y": 52
   }
+},
+        {
+  "id": "beletor",
+  "name": "Beletør",
+  "title": "Cité Vivante du Clan Vrak’tul",
+  "description": "Beletør est une cité druidique façonnée par la nature elle-même, protégée par des racines géantes et dominée par un arbre sacré.",
+
+  "politics": "La cité est dirigée par le clan Vrak’tul, dont l'autorité repose sur la maîtrise de la magie druidique et le lien avec la nature.",
+
+  "structure": "La ville est protégée par un réseau de racines géantes formant une muraille vivante. Les chemins et les structures évoluent constamment, rendant la cité difficile à appréhender.",
+
+  "religion": "Au centre se dresse un arbre gigantesque dont le tronc creusé accueille les rituels du clan. Ses feuilles changent de couleur, reflétant les cycles naturels et les présages.",
+
+  "military": "Les druides de Beletør sont capables de manipuler la nature elle-même, transformant le terrain et déchaînant des forces végétales contre leurs ennemis.",
+
+  "mystery": "Certains rituels dépassent les limites du naturel, transformant parfois les druides en créatures sauvages liées à la forêt.",
+
+  "culture": "La vie à Beletør est entièrement guidée par les cycles de la nature. La cité est vivante, changeante, et impose ses règles à ses habitants comme à ses visiteurs.",
+
+  "map": "Maps/Beletor.jpg",
+
+  "position": {
+    "x": 60,
+    "y": 70
+  }
 }
       ]
     }

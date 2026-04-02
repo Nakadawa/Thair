@@ -23,19 +23,26 @@
       display: block;
     }
 
+    /* 🔥 NOUVEAU STYLE MARKER */
     .marker {
       position: absolute;
       transform: translate(-50%, -50%);
-      background: darkred;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
+      background: #3b1e0f;
+      color: #f0d68a;
+      padding: 6px 12px;
+      border-radius: 8px;
       cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 2px solid #c9a44c;
+      font-weight: bold;
+      box-shadow: 0 0 8px rgba(0,0,0,0.6);
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
     }
 
     .marker:hover {
-      background: crimson;
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 215, 100, 0.8);
+      background: #5a2d14;
     }
 
     #info {
@@ -99,7 +106,16 @@ fetch("thair.json")
         const marker = document.createElement("div");
 
         marker.className = "marker";
-        marker.textContent = city.name;
+
+        // 🔥 Ajout d’icônes dynamiques
+        let icon = "📍";
+        if (city.id.includes("port")) icon = "⚓";
+        else if (city.id.includes("karan")) icon = "👑";
+        else if (city.id.includes("fort") || city.id.includes("var")) icon = "⚒️";
+        else if (city.id.includes("sombres")) icon = "🔥";
+        else if (city.id.includes("lem")) icon = "🌿";
+
+        marker.innerHTML = `${icon} ${city.name}`;
 
         marker.style.left = city.position.x + "%";
         marker.style.top = city.position.y + "%";
@@ -200,82 +216,27 @@ fetch("thair.json")
                 <p>${city.landmark}</p>
               </div>
             ` : ""}
+
             ${city.culture ? `
-  <div class="info-section">
-    <strong>Culture :</strong>
-    <p>${city.culture}</p>
-  </div>
-` : ""}
+              <div class="info-section">
+                <strong>Culture :</strong>
+                <p>${city.culture}</p>
+              </div>
+            ` : ""}
 
-${city.entertainment ? `
-  <div class="info-section">
-    <strong>Divertissement :</strong>
-    <p>${city.entertainment}</p>
-  </div>
-` : ""}
+            ${city.entertainment ? `
+              <div class="info-section">
+                <strong>Divertissement :</strong>
+                <p>${city.entertainment}</p>
+              </div>
+            ` : ""}
 
-${city.religion ? `
-  <div class="info-section">
-    <strong>Religion :</strong>
-    <p>${city.religion}</p>
-  </div>
-` : ""}
-${city.nature ? `
-  <div class="info-section">
-    <strong>Nature :</strong>
-    <p>${city.nature}</p>
-  </div>
-` : ""}
-${city.industry ? `
-  <div class="info-section">
-    <strong>Artisanat :</strong>
-    <p>${city.industry}</p>
-  </div>
-` : ""}
-
-${city.security ? `
-  <div class="info-section">
-    <strong>Sécurité :</strong>
-    <p>${city.security}</p>
-  </div>
-` : ""}
-
-${city.energy ? `
-  <div class="info-section">
-    <strong>Énergie :</strong>
-    <p>${city.energy}</p>
-  </div>
-` : ""}
-${city.leadership ? `
-  <div class="info-section">
-    <strong>Dirigeant :</strong>
-    <p>${city.leadership}</p>
-  </div>
-` : ""}
-${city.external ? `
-  <div class="info-section">
-    <strong>Extérieur :</strong>
-    <p>${city.external}</p>
-  </div>
-` : ""}
-${city.crime ? `
-  <div class="info-section">
-    <strong>Criminalité :</strong>
-    <p>${city.crime}</p>
-  </div>
-` : ""}
-${city.dark_power ? `
-  <div class="info-section">
-    <strong>Pouvoirs interdits :</strong>
-    <p>${city.dark_power}</p>
-  </div>
-` : ""}
-${city.trade ? `
-  <div class="info-section">
-    <strong>Commerce :</strong>
-    <p>${city.trade}</p>
-  </div>
-` : ""}
+            ${city.religion ? `
+              <div class="info-section">
+                <strong>Religion :</strong>
+                <p>${city.religion}</p>
+              </div>
+            ` : ""}
 
             ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
           `;

@@ -252,6 +252,12 @@ ${city.leadership ? `
     <p>${city.leadership}</p>
   </div>
 ` : ""}
+${city.external ? `
+  <div class="info-section">
+    <strong>Extérieur :</strong>
+    <p>${city.external}</p>
+  </div>
+` : ""}
 
             ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
           `;

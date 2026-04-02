@@ -258,6 +258,12 @@ ${city.external ? `
     <p>${city.external}</p>
   </div>
 ` : ""}
+${city.crime ? `
+  <div class="info-section">
+    <strong>Criminalité :</strong>
+    <p>${city.crime}</p>
+  </div>
+` : ""}
 
             ${city.map ? `<img src="${city.map}" alt="Carte de ${city.name}">` : ""}
           `;
